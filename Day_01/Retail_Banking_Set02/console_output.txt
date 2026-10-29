@@ -1,0 +1,41 @@
+SET 2 - RETAIL BANKING TRANSACTION REVIEW
+
+TASK 1 - SEARCH (100,000 IDs)
+Binary best: 1 comparison (middle element)
+Binary average comparisons: 15.689
+Binary worst observed: 17 comparisons
+Linear best: 1 comparison (first element)
+Linear average successful search: 50000.5 comparisons
+Linear worst: 100000 comparisons
+
+TASK 2 - SORT BY POSTING TIMESTAMP
+Insertion sort:
+  TX1002 AC101 $49.99 BookShop 2026-10-29 09:14:00 (inputOrder=1)
+  TX1001 AC101 $25.99 Cafe 2026-10-29 09:15:00 (inputOrder=0)
+  TX1003 AC101 $12.99 Cafe 2026-10-29 09:15:00 (inputOrder=2)
+  TX1004 AC202 $25.99 Cafe 2026-10-29 09:15:40 (inputOrder=3)
+  TX1005 AC101 $25.99 Cafe 2026-10-29 09:15:45 (inputOrder=4)
+  TX1006 AC101 $25.99 Cafe 2026-10-29 09:17:30 (inputOrder=5)
+Merge sort:
+  TX1002 AC101 $49.99 BookShop 2026-10-29 09:14:00 (inputOrder=1)
+  TX1001 AC101 $25.99 Cafe 2026-10-29 09:15:00 (inputOrder=0)
+  TX1003 AC101 $12.99 Cafe 2026-10-29 09:15:00 (inputOrder=2)
+  TX1004 AC202 $25.99 Cafe 2026-10-29 09:15:40 (inputOrder=3)
+  TX1005 AC101 $25.99 Cafe 2026-10-29 09:15:45 (inputOrder=4)
+  TX1006 AC101 $25.99 Cafe 2026-10-29 09:17:30 (inputOrder=5)
+Stability: TX1001 remains before TX1003 because their timestamps tie.
+
+TASK 3 - DUPLICATE POSTING ALERTS
+Flag: TX1001 and TX1005 (45 seconds apart)
+Hash key = account + amount in cents + merchant; time gap must be <= 60 seconds.
+
+TASK 4 - QUEUE AND STACK
+FIFO review order: Case-101, then Case-102
+Reverse last adjustment: Adjustment C +100
+Next to reverse: Adjustment B -200
+
+TASK 5 - MINIMUM AND MAXIMUM
+Divide-and-conquer: min=$1.50 max=$87.50 comparisons=10
+Brute-force scan:   min=$1.50 max=$87.50 comparisons=14
+
+All demonstrations completed.

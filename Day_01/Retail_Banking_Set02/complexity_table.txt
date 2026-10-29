@@ -1,0 +1,30 @@
+COMPLEXITY TABLE
+================
+n = number of records; k = records sharing one duplicate key.
+
+Algorithm                         Best          Average        Worst          Extra space
+Linear search                     O(1)          O(n)           O(n)            O(1)
+Binary search (sorted input)      O(1)          O(log n)       O(log n)        O(1)
+Insertion sort                    O(n)          O(n^2)         O(n^2)          O(1) auxiliary*
+Merge sort                        O(n log n)    O(n log n)     O(n log n)      O(n)
+Hash-based duplicate grouping     O(n) expected O(n + checks) O(n^2) worst     O(n)
+Array stack push/pop              O(1)          O(1)           O(1)            O(capacity)
+Circular array queue operations   O(1)          O(1)           O(1)            O(capacity)
+Divide-and-conquer min/max        O(n)          O(n)           O(n)            O(log n) recursion
+Brute-force min/max scan          O(n)          O(n)           O(n)            O(1)
+
+* The insertion-sort algorithm itself uses O(1) auxiliary memory. This demo clones the
+  array before sorting, so the full method uses O(n) additional storage.
+Duplicate-check worst case is O(n^2) if many records share a key and every prior record
+in that group is compared. Grouping by a hash key gives expected O(1) group lookup.
+A production implementation can sort each group by timestamp and use a sliding window.
+
+Comparison and design justification:
+- For 100,000 successful lookups, linear search averages 50,000.5 element comparisons.
+- Binary-search comparisons are counted as equality/order tests; its exact average
+  comparison-operation count is printed by testing all 100,000 IDs.
+- Stable sorting retains input order for equal timestamps, supporting audit traceability.
+- Hashing is appropriate for quickly grouping possible duplicates by the three fields.
+- Stack is LIFO for reversing the latest adjustment; queue is FIFO for review backlog.
+- Divide-and-conquer and brute force are both O(n), but divide-and-conquer can reduce
+  comparisons; the sample output shows the counts for the supplied amounts.
