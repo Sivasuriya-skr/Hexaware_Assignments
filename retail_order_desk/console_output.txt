@@ -1,0 +1,37 @@
+Loaded 5 rows from orders.csv
+
+TASK 1 - LOOKUP
+Linear search for 1001: 1001 | C101 | 250.00 | 2026-10-29T10:15:12
+Binary search for 1001: 1001 | C101 | 250.00 | 2026-10-29T10:15:12
+Lookup benchmark (50000 records, 2000 repeats, target=050000): linear 1414.619 ms; binary 3.345 ms
+  Note: binary search used a pre-sorted list; sorting cost is not included in its lookup timing.
+
+TASK 2 - SORTING
+Bubble sort trace (descending), start: [5, 1, 4, 2, 8]
+  Pass 1: [5, 4, 2, 8, 1]
+  Pass 2: [5, 4, 8, 2, 1]
+  Pass 3: [5, 8, 4, 2, 1]
+Merge sort trace (descending), start: [5, 1, 4, 2, 8]
+  Merge pass 1 (run width 1): [5, 1, 4, 2, 8]
+  Merge pass 2 (run width 2): [5, 4, 2, 1, 8]
+  Merge pass 3 (run width 4): [8, 5, 4, 2, 1]
+Sort benchmark (10000 records): bubble 905.746 ms; merge 8.644 ms; built-in List.sort 15.651 ms
+  Correctness check: bubble=true, merge=true
+  Highest 5 amounts: 990.96, 990.95, 990.76, 990.64, 990.60
+
+TASK 3 - DUPLICATE DETECTION
+Duplicate customer/amount/minute keys found: 1
+  C101|250.00|2026-10-29T10:15
+Expected time O(n), auxiliary space O(n), assuming well-distributed hash keys.
+
+TASK 4 - STACK AND QUEUE
+Custom stack undo: order=1001, restore amount=250.00 (revert from 275.00)
+ArrayDeque stack undo: order=1002, restore amount=300.00
+Custom queue dispatch order: 1001, 1002
+ArrayDeque queue dispatch order: 1001, 1002
+Both support O(1) push/pop or enqueue/dequeue; built-in ArrayDeque is generally preferred for production code.
+
+TASK 5 - REFUND CHANGE
+Greedy Indian denominations for Rs.93: minimum pieces=5
+Greedy counterexample denominations [4, 3, 1], amount=6: greedy=3, DP=2
+DP tries each denomination for every amount up to A: O(A*d) time, O(A) space.
