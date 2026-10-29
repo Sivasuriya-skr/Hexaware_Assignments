@@ -14,11 +14,3 @@ A stack is LIFO, so the most recent edit is undone first. A queue is FIFO, so th
 
 5. REFUND CHANGE
 Greedy repeatedly chooses the largest denomination that does not exceed the remaining amount. For common Indian denominations it works for the example, but greedy is not correct for every denomination system. Counterexample: denominations [4, 3, 1], amount 6. Greedy chooses 4+1+1 (3 coins), while the optimum is 3+3 (2 coins). Dynamic programming computes dp[x] = 1 + min(dp[x - coin]) over usable denominations, with dp[0]=0. Complexity is O(A*d) time and O(A) space, where A is the integer amount in smallest units and d is the number of denominations.
-
-RUN
-Use JDK 8 or newer. Put Main.java and orders.csv in the same directory, then run:
-  javac Main.java
-  java Main
-Or provide another CSV path:
-  java Main /path/to/orders.csv
-CSV timestamps must use ISO local date-time format, e.g. 2026-10-29T10:15:12. The included CSV is a small demonstration fixture. Benchmarks automatically use generated 50,000-row and 10,000-row data sets when the supplied CSV is smaller than the required benchmark size.
