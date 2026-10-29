@@ -1,0 +1,7 @@
+Run from this directory:
+  javac Main.java
+  java Main
+
+The program prints the measured search times, comparison counts, sorting swaps,
+duplicate detection, queue/stack demonstrations, and DP-versus-greedy result.
+Elapsed times vary by machine and JVM; submit the actual output from your run.

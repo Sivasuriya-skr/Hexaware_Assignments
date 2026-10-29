@@ -1,0 +1,19 @@
+TYPED TRACE: SELECTION SORT
+Sort key: urgency ascending, then arrival time ascending.
+Input:
+A01(3,540), A02(1,575), A03(2,550), A04(1,535), A05(3,530), A06(2,545), A07(1,560)
+
+Pass 1: minimum is A04(1,535). Swap A01 and A04.
+A04, A02, A03, A01, A05, A06, A07
+Pass 2: minimum in remaining suffix is A07(1,560). Swap A02 and A07.
+A04, A07, A03, A01, A05, A06, A02
+Pass 3: minimum in remaining suffix is A02(1,575). Swap A03 and A02.
+A04, A07, A02, A01, A05, A06, A03
+Pass 4: minimum in remaining suffix is A06(2,545). Swap A01 and A06.
+A04, A07, A02, A06, A05, A01, A03
+Pass 5: minimum in remaining suffix is A03(2,550). Swap A05 and A03.
+A04, A07, A02, A06, A03, A01, A05
+Pass 6: minimum in remaining suffix is A05(3,530). Swap A01 and A05.
+A04, A07, A02, A06, A03, A05, A01
+
+Final order matches the program output. Each pair is shown as appointment ID (urgency, arrival minute).

@@ -1,0 +1,27 @@
+COMPLEXITY AND DATA-STRUCTURE NOTE
+
+1. Searching 20,000 patient records
+- Linear: O(n) per lookup, O(q*n) for q lookups; O(1) extra space.
+- Binary: O(log n) per lookup after sorting, O(q log n) for q lookups; O(1) extra space.
+- For n=20,000 and q=1,000, linear can perform up to 20,000,000 comparisons; binary uses about 15 comparisons per successful lookup.
+
+2. Sorting appointments
+- Selection sort: O(n^2) time, O(1) extra space, at most n-1 swaps.
+- Quick sort: average O(n log n), worst O(n^2); average recursion space O(log n).
+- Both use urgency ascending, then arrival time ascending. Timings depend on machine/JVM and input.
+
+3. Double-booking detection
+- HashSet composite key (patient ID + slot): expected O(1) membership/add, O(n) expected total time and O(n) space.
+- List scan: O(n) for each booking, O(n^2) for n bookings.
+- Production systems should also enforce a unique database constraint on patient ID plus slot ID.
+
+4. Queue and stack
+- Custom circular array queue: enqueue/dequeue O(1), FIFO, fixed capacity.
+- Custom array stack: push/pop O(1), LIFO, fixed capacity.
+
+5. Appointment scheduling
+- Weighted interval scheduling DP: O(n^2) here because predecessor indices use a nested scan; O(n) DP space. Binary-search predecessor lookup can reduce this to O(n log n) after sorting.
+- Greedy highest-value-first is not guaranteed optimal for weighted scheduling.
+- If maximizing appointment count without weights, earliest-finish-time greedy is optimal in O(n log n).
+
+Assumptions: urgency 1 is highest; time slots are [start,end), so one ending exactly when another begins is compatible.

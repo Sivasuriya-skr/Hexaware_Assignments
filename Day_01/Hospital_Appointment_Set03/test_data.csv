@@ -1,0 +1,16 @@
+record_type,id,patient_id,urgency,arrival_minute,start,end,value
+patient,100001,100001,,,,
+patient,100002,100002,,,,
+appointment,A01,100101,3,540,,,
+appointment,A02,100102,1,575,,,
+appointment,A03,100103,2,550,,,
+appointment,A04,100104,1,535,,,
+appointment,A05,100105,3,530,,,
+appointment,A06,100106,2,545,,,
+appointment,A07,100107,1,560,,,
+slot,S1,,,,9,11,5
+slot,S2,,,,9,10,3
+slot,S3,,,,10,12,6
+slot,S4,,,,11,13,5
+slot,S5,,,,12,14,4
+slot,S6,,,,13,15,7
