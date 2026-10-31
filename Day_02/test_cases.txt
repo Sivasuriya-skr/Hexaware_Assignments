@@ -1,0 +1,34 @@
+TEST CASES
+
+1. BST
+- Empty input: search(100) is false; inorder traversal is [].
+- Normal input: insert 50, 30, 70, 20, 40, 60, 80.
+- Duplicate: inserting 50 again returns false.
+- Expected inorder: [20, 30, 40, 50, 60, 70, 80].
+- Search: 60 is found; 999 is not found.
+
+2. Hash duplicate detection
+- First claim: policy "POL 123 ab", date 2026-10-20 => unique.
+- Same policy/date with "pol123AB" => duplicate (case and spaces ignored).
+- Same policy, next date => unique.
+- "POL-123AB" => unique because punctuation is not removed by normalization.
+
+3. Directed graph
+- Registration -> Assessment -> Surveyor -> Settlement.
+- Also Assessment -> Settlement.
+- BFS shortest path expected: [Registration, Assessment, Settlement].
+- Initial graph has no cycle.
+- Add Settlement -> Assessment; DFS must report a cycle.
+
+4. Sliding window
+- Daily counts: [95, 110, 125, 130, 80, 105, 115, 118, 121, 90].
+- Threshold: strictly greater than 100.
+- Expected longest run: 4 days.
+- Empty input => 0.
+- [100, 100] => 0 because values must exceed 100.
+
+5. Merge sorted regional lists
+- [] + [] => [].
+- [1, 3, 5] + [2, 4, 6] => [1, 2, 3, 4, 5, 6].
+- [1, 2, 2] + [2, 3] => [1, 2, 2, 2, 3].
+- [] + [4, 7] => [4, 7].

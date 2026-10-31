@@ -1,0 +1,16 @@
+COMPLEXITY TABLE
+Let n = number of claim IDs in the BST, h = BST height, c = number of claims checked,
+V = number of approval stages, E = number of directed transitions,
+D = number of consecutive daily counts, and a,b = sizes of the two regional lists.
+
+| Solution | Time complexity | Auxiliary space | Notes |
+|---|---:|---:|---|
+| BST insert | O(h), average O(log n), worst O(n) | O(1) iterative | An unbalanced BST can become a chain. |
+| BST search | O(h), average O(log n), worst O(n) | O(1) iterative | Inorder traversal is O(n); preorder/postorder are O(n). |
+| Hash duplicate detection | Expected O(1) per claim; worst O(c) per operation | O(c) | HashMap resolves bucket collisions using equals(); equal normalized keys identify duplicates. |
+| BFS shortest path | O(V + E) | O(V) | Finds the fewest-edge path in an unweighted directed graph. |
+| DFS cycle detection | O(V + E) | O(V) | Uses recursion state plus adjacency representation. |
+| Longest consecutive high-claim streak | O(D) | O(1) | Sliding window / two indices; each day is visited once. |
+| Merge two sorted lists | O(a + b) | O(a + b) for output | No extra sorting; each input element is copied once. |
+
+Note: The BST implementation is not self-balancing, so its worst-case height is O(n).
